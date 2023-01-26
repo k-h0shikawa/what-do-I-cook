@@ -29,7 +29,6 @@ public class menuController {
     @CrossOrigin(origins="http://localhost:46157")
     @GetMapping(value="/menu")
     public List<MenuEntity> fetchMenuList(){
-        List<MenuEntity> menus = menuService.fetchMenu();
-        return menus;
+        return menuService.fetchMenu();
     }
 }
