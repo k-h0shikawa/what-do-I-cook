@@ -17,4 +17,8 @@ public class MenuService {
     public List<MenuEntity> fetchMenu(){
         return menuMapper.search();
     }
+
+    public List<MenuEntity> fetchCanMakeMenus() {
+        return menuMapper.canMakeMenus();
+    }
 }

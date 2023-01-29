@@ -25,4 +25,17 @@
         INNER JOIN INGREDIENT I
             ON R.INGREDIENT_ID = I.id
     </select>
+
+    <select id="canMakeMenus" resultMap="muneMap">
+        SELECT
+            M.id as MENU_ID 
+            , M.name as MENU_NAME
+            , I.id as INGREDIENT_ID
+            , I.name as INGREDIENT_NAME
+        FROM MENUS M
+        INNER JOIN MENU_INGREDIENT_RELATION R
+            ON M.id = R.MUNU_ID
+        INNER JOIN INGREDIENT I
+            ON R.INGREDIENT_ID = I.id
+    </select>
 </mapper>

@@ -31,4 +31,9 @@ public class menuController {
     public List<MenuEntity> fetchMenuList(){
         return menuService.fetchMenu();
     }
+    
+    @GetMapping(value = "/canMakeMenu")
+    public List<MenuEntity> fetchCanMakeMenus(){
+        return menuService.fetchCanMakeMenus();
+    }
 }
