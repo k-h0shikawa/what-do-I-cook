@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.whatdoieat.dao.MenuMapper;
 import com.example.whatdoieat.entity.MenuEntity;
+import com.example.whatdoieat.entity.OwnIngredientEntity;
 
 @Service
 public class MenuService {
@@ -18,7 +19,7 @@ public class MenuService {
         return menuMapper.search();
     }
 
-    public List<MenuEntity> fetchCanMakeMenus() {
-        return menuMapper.canMakeMenus();
+    public List<MenuEntity> fetchCanMakeMenus(OwnIngredientEntity ownIngredientEntity) {
+        return menuMapper.canMakeMenus(ownIngredientEntity);
     }
 }

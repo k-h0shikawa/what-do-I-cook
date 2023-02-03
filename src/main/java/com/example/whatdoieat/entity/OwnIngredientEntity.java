@@ -5,7 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 @Data
-public class IngredientEntity {
-    @JsonProperty("ingredientName")
-	private String ingredientName;
+public class OwnIngredientEntity {
+
+    @JsonProperty("ownIngredientName")
+    private String ownIngredientName;
+
 }
