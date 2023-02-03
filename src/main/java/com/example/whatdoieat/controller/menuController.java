@@ -20,13 +20,11 @@ public class MenuController {
     @Autowired
     MenuService menuService;
 
-    // @CrossOrigin(origins="http://localhost:4200")
     @GetMapping(value="/menu")
     public List<MenuEntity> fetchMenuList(){
         return menuService.fetchMenu();
     }
 
-    
     @PostMapping(value = "/canMakeMenu")
     @ResponseBody
     public List<MenuEntity> fetchCanMakeMenus(
