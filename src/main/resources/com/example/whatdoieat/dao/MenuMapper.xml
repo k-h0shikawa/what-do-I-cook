@@ -8,8 +8,7 @@
         <id property="id" column="MENU_ID" />
         <id property="menuName" column="MENU_NAME" />
         <collection property="ingredients" ofType="com.example.whatdoieat.entity.IngredientEntity">
-            <id property="ingredientId" column="INGREDIENT_ID" />
-            <result property="ingredientName" column="INGREDIENT_NAME" />
+            <result property="ingredientName" column="INGREDIENT_NAMES" />
         </collection>
     </resultMap>
 
@@ -17,8 +16,7 @@
         SELECT
             M.id as MENU_ID 
             , M.name as MENU_NAME
-            , I.id as INGREDIENT_ID
-            , I.name as INGREDIENT_NAME
+            , I.name as INGREDIENT_NAMES
         FROM MENUS M
         INNER JOIN MENU_INGREDIENT_RELATION R
             ON M.id = R.MUNU_ID
@@ -30,12 +28,12 @@
         SELECT
             M.id as MENU_ID 
             , M.name as MENU_NAME
-            , I.id as INGREDIENT_ID
-            , I.name as INGREDIENT_NAME
+            , I.name as INGREDIENT_NAMES
         FROM MENUS M
         INNER JOIN MENU_INGREDIENT_RELATION R
             ON M.id = R.MUNU_ID
         INNER JOIN INGREDIENT I
             ON R.INGREDIENT_ID = I.id
+        WHERE I.name = #{ownIngredientName}
     </select>
 </mapper>
