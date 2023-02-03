@@ -35,6 +35,5 @@
         INNER JOIN INGREDIENT I
             ON R.INGREDIENT_ID = I.id
         WHERE I.name = #{ownIngredientName}
-        
     </select>
 </mapper>

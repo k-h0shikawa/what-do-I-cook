@@ -20,6 +20,7 @@ public class MenuController {
     @Autowired
     MenuService menuService;
 
+
     @GetMapping(value="/menu")
     public List<MenuEntity> fetchMenuList(){
         return menuService.fetchMenu();
@@ -32,5 +33,6 @@ public class MenuController {
         System.out.println(ownIngredientEntity.getOwnIngredientName());
 
         return menuService.fetchCanMakeMenus(ownIngredientEntity);
+
     }
 }

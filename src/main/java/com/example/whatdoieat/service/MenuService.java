@@ -21,5 +21,6 @@ public class MenuService {
 
     public List<MenuEntity> fetchCanMakeMenus(OwnIngredientEntity ownIngredientEntity) {
         return menuMapper.canMakeMenus(ownIngredientEntity);
+
     }
 }

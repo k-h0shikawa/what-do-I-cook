@@ -11,4 +11,5 @@ public interface MenuMapper {
     public List<MenuEntity> search();
 
     public List<MenuEntity> canMakeMenus(OwnIngredientEntity ownIngredientEntity);
+
 }
