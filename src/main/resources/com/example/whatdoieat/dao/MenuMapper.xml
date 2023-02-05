@@ -34,6 +34,12 @@
             ON M.id = R.MUNU_ID
         INNER JOIN INGREDIENT I
             ON R.INGREDIENT_ID = I.id
-        WHERE I.name = #{ownIngredientName}
+        
+        <if test="ownIngredientEntity != null">
+            WHERE I.name IN 
+            <foreach item="ownIngredient" collection="list" open="(" separator="," close=")">
+                #{ownIngredient.ownIngredientName}
+            </foreach>
+        </if>
     </select>
 </mapper>
