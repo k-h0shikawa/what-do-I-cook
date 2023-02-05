@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.whatdoieat.entity.MenuEntity;
 import com.example.whatdoieat.entity.OwnIngredientEntity;
+import com.example.whatdoieat.entity.OwnIngredientsEntity;
 import com.example.whatdoieat.service.MenuService;
 
-@CrossOrigin(origins="http://localhost:4200")
+
 @RestController
 public class MenuController {
     @Autowired
@@ -25,14 +26,19 @@ public class MenuController {
     public List<MenuEntity> fetchMenuList(){
         return menuService.fetchMenu();
     }
-
+    
+    @CrossOrigin(origins="http://localhost:4200")
     @PostMapping(value = "/canMakeMenu")
     @ResponseBody
     public List<MenuEntity> fetchCanMakeMenus(
-        @RequestBody OwnIngredientEntity ownIngredientEntity){
-        System.out.println(ownIngredientEntity.getOwnIngredientName());
+        @RequestBody OwnIngredientsEntity ownIngredientsEntity){
+        for (OwnIngredientEntity e :ownIngredientsEntity.getOwnIngredients()){
+            System.out.println(e.getOwnIngredientName());
+        }
 
-        return menuService.fetchCanMakeMenus(ownIngredientEntity);
+        return menuService.fetchCanMakeMenus(ownIngredientsEntity.getOwnIngredients());
 
     }
+
+    
 }
